@@ -1,0 +1,9 @@
+﻿body {
+    background-image: url(../Images/med.jpg);
+}
+/*need to implement dynamic margins based on user*/
+h1 {
+    color:  black;
+    margin-left: 683px;
+    font: bold 75 verdana;
+}

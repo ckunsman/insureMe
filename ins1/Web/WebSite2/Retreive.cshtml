@@ -1,0 +1,16 @@
+﻿@{
+    var db = Database.Open("ins1DBFul");
+    var selectQueryString = "SELECT * FROM LogTransaction ORDER BY Name";
+    foreach (var row in db.Query(selectQueryString))
+    {
+        <tr>
+            <td>@row.Id</td>
+            <td>@row.Name</td>
+            <td>@row.Description</td>
+            <td align="right">@row.Price</td>
+        </tr>
+    }
+    }
+<div>
+    
+</div>

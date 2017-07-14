@@ -1,0 +1,47 @@
+﻿
+@using WebMatrix.Data;
+
+@{ 
+    var userName = "";
+    var passWord = "";
+
+    if (IsPost)
+    {
+        userName = Request.Form["userName"];
+        passWord = Request.Form["passWord"];
+
+
+        var db = Database.Open("ins1DBFul");
+        var insertCommand = "INSERT INTO InsureeLogin (userName, passWord) Values(@0, @1)";
+        db.Execute(insertCommand,userName, passWord);
+        Response.Redirect("~/InsureeLogin");
+    }
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Add a User</title>
+</head>
+<body>
+    <h1>Add a User</h1>
+    <form method="post">
+        <fieldset>
+            <legend>Information</legend>
+            <p>
+                <label for="title">Title:</label>
+                <input type="text" name="title" value="@Request.Form["UserName"]" />
+            </p>
+
+            <p>
+                <label for="genre">Genre:</label>
+                <input type="text" name="genre" value="@Request.Form["PassWord"]" />
+            </p>
+
+           
+            <p><input type="submit" name="buttonSubmit" value="Add User" /></p>
+        </fieldset>
+    </form>
+</body>
+</html>
